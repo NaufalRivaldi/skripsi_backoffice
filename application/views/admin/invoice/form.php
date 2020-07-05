@@ -50,7 +50,7 @@
 
                     <div class="form-group">
                       <label for="date">Date</label>
-                      <input type="date" name="date" class="form-control" id="date" value="<?= $invoice->date ?>" readonly>
+                      <input type="date" name="date" class="form-control" id="date" value="<?= $invoice->date ?>">
                       <small class="tiny-text text-muted">Data sudah diset otomatis.</small>
 
                       <small class="text-danger"><?= form_error('date') ?></small>
@@ -185,11 +185,13 @@
         $('#nameTenant').empty();
         $('#picTenant').empty();
         $('#phoneTenant').empty();
+        $('#total').val();
 
         $('#codeTenant').append(data.code);
         $('#nameTenant').append(data.name);
         $('#picTenant').append(data.pic);
         $('#phoneTenant').append(data.phone);
+        $('#total').val(data.rent);
       }
     });
     <?php endif ?>
@@ -230,17 +232,21 @@
           $('#nameTenant').empty();
           $('#picTenant').empty();
           $('#phoneTenant').empty();
+          $('#total').val();
 
           $('#codeTenant').append(data.code);
           $('#nameTenant').append(data.name);
           $('#picTenant').append(data.pic);
           $('#phoneTenant').append(data.phone);
+          $('#total').val(data.rent);
+
+          grandTotal(data.rent);
         }
       });
     });
 
-    $(document).on('keyup', '#total', function(){
-      var total = parseFloat($(this).val());
+    function grandTotal(total){
+      var total = parseFloat(total);
       var grandTotal = 0;
       var ppn = 0;
 
@@ -249,7 +255,7 @@
 
       $('#ppn').val(ppn);
       $('#grandTotal').val(grandTotal);
-    });
+    }
   </script>
 </body>
  

@@ -92,6 +92,13 @@
                         <small class="text-danger"><?= form_error('locationId') ?></small>
                       </div>
 
+                      <div class="form-group">
+                        <label for="rent">Rent (Rp.)</label>
+                        <input type="number" name="rent" class="form-control" id="rent" value="<?= $tenant->rent ?>">
+
+                        <small class="text-danger"><?= form_error('rent') ?></small>
+                      </div>
+
                       <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save</button>
                       <button type="reset" class="btn btn-warning"><i class="fas fa-sync"></i> Reset</button>
                     </form>

@@ -34,22 +34,30 @@
                       <i class="fas fa-plus-circle"></i> Add Invoice
                     </a>
                   </div>
-                  <div class="col-md-10">
+                </div>
+              </div>
+
+              <div class="card-header">
+                <div class="row">
+                  <div class="col-md-12">
                     <form action="<?= site_url('invoice') ?>" method="GET" id="formFilter">
                       <div class="row">
                         <div class="col-md-4">
+                          <label for="">Pilih Tenant</label>
                           <select name="tenantId" id="tenantId" class="form-control">
                             
                           </select>
                         </div>
                         <div class="col-md-3">
-                          <input type="date" name="dateA" class="form-control" data-toggle="tooltip" data-placement="top" title="First Date" value="<?= $filter->dateA ?>">
+                          <label for="">First Date</label>
+                          <input type="date" name="dateA" class="form-control" value="<?= $filter->dateA ?>">
                         </div>
                         <div class="col-md-3">
-                          <input type="date" name="dateB" class="form-control" data-toggle="tooltip" data-placement="top" title="Last Date" value="<?= $filter->dateB ?>">
+                          <label for="">Last Date</label>
+                          <input type="date" name="dateB" class="form-control" value="<?= $filter->dateB ?>">
                         </div>
                         <div class="col-md-2">
-                          <button type="submit" class="btn btn-success"><i class="fas fa-search"></i> Search</button>
+                          <button type="submit" class="btn btn-success mt-4"><i class="fas fa-search"></i> Search</button>
                         </div>
                       </div>
                     </form>

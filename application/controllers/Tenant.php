@@ -62,6 +62,7 @@ class Tenant extends CI_Controller {
         'phone' => '',
         'status' => '',
         'locationId' => '',
+        'rent' => '',
       ];
     }else{
       $data['tenant'] = $this->tenant->getData($id);

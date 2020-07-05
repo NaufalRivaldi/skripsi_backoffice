@@ -19,6 +19,14 @@ function cekFinance(){
   }
 }
 
+function cekLeader(){
+  $CI =& get_instance();
+  if($CI->session->userData('level') != 2){
+    flashData('warning', 'You do not have access to this page!');
+    redirect('dashboard');
+  }
+}
+
 function flashData($type, $value){
   $CI =& get_instance();
   return $CI->session->set_flashData($type, $value);

@@ -16,24 +16,26 @@
                       <a class="nav-link" href="<?= site_url('dashboard') ?>"><i class="fa fa-fw fa-user-circle"></i>Dashboard</a>
                   </li>
                   
-                  <?php if($this->session->userData('level') == 1): ?>
                   <li class="nav-item">
                       <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#master" aria-controls="master"><i class="fas fa-fw fa-database"></i>Master</a>
                       <div id="master" class="collapse submenu" style="">
                           <ul class="nav flex-column">
+                            <?php if($this->session->userData('level') == 2): ?>
                               <li class="nav-item">
                                   <a class="nav-link" href="<?= site_url('user/') ?>">User</a>
                               </li>
+                            <?php endif ?>
+                            <?php if($this->session->userData('level') == 1): ?>
                               <li class="nav-item">
                                   <a class="nav-link" href="<?= site_url('location/') ?>">Location</a>
                               </li>
                               <li class="nav-item">
                                   <a class="nav-link" href="<?= site_url('tenant/') ?>">Tenant</a>
                               </li>
+                            <?php endif ?>
                           </ul>
                       </div>
                   </li>
-                  <?php endif ?>
 
                   <?php if($this->session->userData('level') == 1): ?>
                   <li class="nav-divider">

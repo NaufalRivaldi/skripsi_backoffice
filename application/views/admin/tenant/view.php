@@ -56,6 +56,8 @@
                 <p><?= status($tenant->status) ?></p>
                 <h4>Location</h4>
                 <p><?= $tenant->codeLocation.' - '.$tenant->nameLocation ?></p>
+                <h4>Rent (Rp.)</h4>
+                <p><?= number_format($tenant->rent) ?></p>
               </div>
 
             </div>

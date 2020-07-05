@@ -221,7 +221,7 @@ class InvoiceModel extends CI_Model {
 
   public function save(){
     $post = $this->input->post();
-    $jatuhTempo = date('Y-m-d', strtotime($post['date'] . '+'.$post['jatuhTempo'].' day'));
+    $jatuhTempo = date('Y-m-d', strtotime($post['date'] . '+'.$post['dueDate'].' day'));
 
     $this->number = $post['number'];
     $this->date = $post['date'];

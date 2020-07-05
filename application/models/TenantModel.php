@@ -42,6 +42,11 @@ class TenantModel extends CI_Model {
         'field' => 'locationId',
         'label' => 'locationId',
         'rules' => 'required'
+      ],
+      [
+        'field' => 'rent',
+        'label' => 'rent',
+        'rules' => 'required'
       ]
     ];
   }
@@ -58,7 +63,7 @@ class TenantModel extends CI_Model {
 
   public function getData($id){
     return $this->db
-                  ->select('t.id, t.code, t.name, t.pic, t.phone, t.status, t.locationId, l.code as codeLocation, l.name as nameLocation')
+                  ->select('t.id, t.code, t.name, t.pic, t.phone, t.status, t.locationId, t.rent, l.code as codeLocation, l.name as nameLocation')
                   ->from('tenant t')
                   ->join('location l', 'l.id = t.locationId')
                   ->where('t.id', $id)
@@ -67,7 +72,7 @@ class TenantModel extends CI_Model {
 
   public function getDataActive($id){
     return $this->db
-                  ->select('t.id, t.code, t.name, t.pic, t.phone, t.status, t.locationId, l.code as codeLocation, l.name as nameLocation')
+                  ->select('t.id, t.code, t.name, t.pic, t.phone, t.status, t.locationId, t.rent l.code as codeLocation, l.name as nameLocation')
                   ->from('tenant t')
                   ->join('location l', 'l.id = t.locationId')
                   ->where('t.id', $id)
@@ -83,6 +88,7 @@ class TenantModel extends CI_Model {
     $this->phone = $post['phone'];
     $this->status = '1';
     $this->locationId = $post['locationId'];
+    $this->rent = $post['rent'];
 
     return $this->db->insert('tenant', $this);
   }
@@ -95,7 +101,8 @@ class TenantModel extends CI_Model {
       'pic' => $post['pic'],
       'phone' => $post['phone'],
       'status' => $post['status'],
-      'locationId' => $post['locationId']
+      'locationId' => $post['locationId'],
+      'rent' => $post['rent']
     );
 
     return $this->db->where('id', $post['id'])->update('tenant', $data);
