@@ -30,16 +30,18 @@
               <div class="card-header">
                 <div class="row">
                   <div class="col-md-10">
-                    <form action="<?= site_url('report/pembayaran') ?>" method="GET" id="formFilter">
+                    <form action="<?= site_url('report/payment') ?>" method="GET" id="formFilter">
                       <div class="row">
                         <div class="col-md-3">
-                          <input type="date" name="tglA" class="form-control" data-toggle="tooltip" data-placement="top" title="Tanggal Awal" value="<?= $filter->tglA ?>">
+                          <label for="">First Date</label>
+                          <input type="date" name="dateA" class="form-control" value="<?= $filter->dateA ?>">
                         </div>
                         <div class="col-md-3">
-                          <input type="date" name="tglB" class="form-control" data-toggle="tooltip" data-placement="top" title="Tanggal Akhir" value="<?= $filter->tglB ?>">
+                          <label for="">Last Date</label>
+                          <input type="date" name="dateB" class="form-control" value="<?= $filter->dateB ?>">
                         </div>
                         <div class="col-md-2">
-                          <button type="submit" class="btn btn-success"><i class="fas fa-search"></i> Search</button>
+                          <button type="submit" class="btn btn-success mt-4"><i class="fas fa-search"></i> Search</button>
                         </div>
                       </div>
                     </form>
@@ -52,22 +54,22 @@
                   <thead>
                     <tr>
                       <th>No</th>
-                      <th>Tanggal</th>
-                      <th>Nomer</th>
+                      <th>Date</th>
+                      <th>Number</th>
                       <th>Tenant</th>
-                      <th>Tanggal Jatuh Tempo</th>
+                      <th>Due Date</th>
                       <th>Total (Rp.)</th>
-                      <th>Aksi</th>
+                      <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
                     <?php foreach($invoice as $row): ?>
                       <tr>
                         <td><?= $no++ ?></td>
-                        <td><?= setDate($row->tgl) ?></td>
-                        <td><?= $row->nomer ?></td>
-                        <td><?= $row->namaTenant ?></td>
-                        <td><?= setDate($row->tglJatuhTempo) ?></td>
+                        <td><?= setDate($row->date) ?></td>
+                        <td><?= $row->number ?></td>
+                        <td><?= $row->nameTenant ?></td>
+                        <td><?= setDate($row->dueDate) ?></td>
                         <td class="text-right"><?= number_format($row->grandTotal) ?></td>
                         <td>
                           <a href="<?= site_url('report/view/'.$row->id) ?>" class="btn btn-info btn-sm"><i class="fas fa-search"></i></a>

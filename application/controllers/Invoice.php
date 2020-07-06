@@ -13,7 +13,7 @@ class Invoice extends CI_Controller {
     $this->load->library('pdf');
     
     cekLogin();
-    cekFinance();
+    // cekFinance();
 	}
 
 	public function index(){

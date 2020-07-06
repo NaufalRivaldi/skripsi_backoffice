@@ -58,18 +58,18 @@
               <h3 class="text-muted">Data Tenant</h3>
             </div>
             <div class="card-body">
-              <h4>Kode Tenant</h4>
-              <p><?= $tenant->kode ?></p>
-              <h4>Nama</h4>
-              <p><?= $tenant->nama ?></p>
+              <h4>Code Tenant</h4>
+              <p><?= $tenant->code ?></p>
+              <h4>Name</h4>
+              <p><?= $tenant->name ?></p>
               <h4>PIC</h4>
               <p><?= $tenant->pic ?></p>
-              <h4>Telepon</h4>
-              <p><?= $tenant->telp ?></p>
+              <h4>Phone</h4>
+              <p><?= $tenant->phone ?></p>
               <h4>Status</h4>
               <p><?= status($tenant->status) ?></p>
-              <h4>Lokasi</h4>
-              <p><?= $tenant->kodeLokasi.' - '.$tenant->namaLokasi ?></p>
+              <h4>Location</h4>
+              <p><?= $tenant->codeLocation.' - '.$tenant->nameLocation ?></p>
             </div>
           </div>
         </div>
@@ -77,8 +77,8 @@
         <div class="col-md-8">
           <div class="card">
             <div class="card-body">
-              <h2>Selamat Datang di Sistem Informasi Backoffice Finance.</h2>
-              <p class=text-muted>Dapatkan informasi pembayaran tenant anda disini.</p>
+              <h2>Welcome to BACK OFFICE FINANCE INFORMATION SYSTEM</h2>
+              <p class=text-muted>Get your payment information in here.</p>
             </div>
           </div>
         </div>

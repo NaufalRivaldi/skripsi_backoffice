@@ -17,6 +17,7 @@
                   </li>
                   
                   <li class="nav-item">
+                    <?php if($this->session->userData('level') != 3): ?>
                       <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#master" aria-controls="master"><i class="fas fa-fw fa-database"></i>Master</a>
                       <div id="master" class="collapse submenu" style="">
                           <ul class="nav flex-column">
@@ -35,6 +36,7 @@
                             <?php endif ?>
                           </ul>
                       </div>
+                    <?php endif ?>
                   </li>
 
                   <?php if($this->session->userData('level') == 1): ?>

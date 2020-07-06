@@ -35,7 +35,7 @@ class Report extends CI_Controller {
 		$this->load->view('admin/report/index', $data);
   }
 
-  public function pembayaran(){
+  public function payment(){
     $data['title'] = 'Payment';
     $data['no'] = 1;
     $data['invoice'] = $this->invoice->showSpec();

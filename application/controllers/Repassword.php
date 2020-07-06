@@ -24,15 +24,15 @@ class Repassword extends CI_Controller {
     $validation->set_rules($user->rulesRePassword());
     if($validation->run()){
       if($user->rePassword()){
-        flashData('success', 'Password berhasil diubah.');
+        flashData('success', 'Password has been change.');
         redirect('dashboard');
       }else{
-        flashData('danger', 'Password gagal diubah.');
+        flashData('danger', 'Failed to change password.');
         redirect('dashboard');
       }
     }
 
-    flashData('danger', 'Password gagal diubah.');
+    flashData('danger', 'Failed to change password.');
     return $this->index();
   }
 
@@ -42,15 +42,15 @@ class Repassword extends CI_Controller {
     $validation->set_rules($user->rulesRePassword());
     if($validation->run()){
       if($user->rePasswordTenant()){
-        flashData('success', 'Password berhasil diubah.');
+        flashData('success', 'Password has been change.');
         redirect('dashboard');
       }else{
-        flashData('danger', 'Password gagal diubah.');
+        flashData('danger', 'Failed to change password.');
         redirect('dashboard');
       }
     }
 
-    flashData('danger', 'Password gagal diubah.');
+    flashData('danger', 'Failed to change password.');
     return $this->index();
   }
 

@@ -174,7 +174,7 @@ class UserModel extends CI_Model {
       $this->username = $post['username'];
       $this->password = sha1($post['password']);
 
-      return $this->db->where('kode', $this->username)->where('password', $this->password)->get('tenant');
+      return $this->db->where('code', $this->username)->where('password', $this->password)->get('tenant');
     }
     
 }
