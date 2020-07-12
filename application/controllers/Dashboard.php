@@ -7,6 +7,7 @@ class Dashboard extends CI_Controller {
     parent::__construct();
 
     $this->load->model('TenantModel', 'tenant');
+    $this->load->model('InvoiceModel', 'invoice');
 
     cekLogin();
   }
@@ -16,6 +17,7 @@ class Dashboard extends CI_Controller {
     
     if($this->session->userData('level') == '3'){
       $data['tenant'] = $this->tenant->getData($this->session->userData('id'));
+      $data['cekPembayaran'] = $this->invoice->cekPembayaran($this->session->userData('id'));
     }
 
 		$this->load->view('admin/dashboard/index', $data);

@@ -51,6 +51,11 @@
         </div>
       </div>
       <?php else: ?>
+      <?php if(empty($cekPembayaran)): ?>
+      <div class="alert alert-danger" role="alert">
+        <b>You haven't made a payment <?= date('F') ?>, make a payment? contact finance immediately.</b>
+      </div>
+      <?php endif ?>
       <div class="row">
         <div class="col-md-4">
           <div class="card">

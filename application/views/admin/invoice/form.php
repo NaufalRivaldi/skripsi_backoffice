@@ -63,19 +63,17 @@
 
                     </div>
                   </div>
-
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="tenantId">Tenant</label>
                       <select name="tenantId" id="tenantId" class="form-control">
                         <?php if(!empty($invoice->id)): ?>
-                          <option value="<?= $invoice->idTenant ?>" selected><?= $invoice->codeTenant.' - '.$invoice->nameTenant ?></option>
+                          <option value="<?= $invoice->tenantId ?>" selected><?= $invoice->codeTenant.' - '.$invoice->nameTenant ?></option>
                         <?php endif ?>
                       </select>
 
                       <small class="text-danger"><?= form_error('tenantId') ?></small>
                     </div>
-
                     <div class="card">
                       <div class="card-body">
                         <div class="table-responsive">
@@ -83,22 +81,22 @@
                             <tr>
                               <th width="20%">Code</th>
                               <td width="1%">:</td>
-                              <td id="codeTenant"></td>
+                              <td id="codeTenant"><?= ($invoice->id)?$invoice->codeTenant:'' ?></td>
                             </tr>
                             <tr>
                               <th width="10%">Name</th>
                               <td width="1%">:</td>
-                              <td id="nameTenant"></td>
+                              <td id="nameTenant"><?= ($invoice->id)?$invoice->nameTenant:'' ?></td>
                             </tr>
                             <tr>
                               <th width="10%">Attn</th>
                               <td width="1%">:</td>
-                              <td id="picTenant"></td>
+                              <td id="picTenant"><?= ($invoice->id)?$invoice->pic:'' ?></td>
                             </tr>
                             <tr>
                               <th width="10%">Phone</th>
                               <td width="1%">:</td>
-                              <td id="phoneTenant"></td>
+                              <td id="phoneTenant"><?= ($invoice->id)?$invoice->phone:'' ?></td>
                             </tr>
                           </table>
                         </div>
@@ -178,7 +176,7 @@
       type: 'GET',
       dataType: 'json',
       data: {
-        'id': '<?= $invoice->idTenant ?>'
+        'id': '<?= $invoice->tenantId ?>'
       },
       success: function(data){
         $('#codeTenant').empty();
@@ -243,6 +241,12 @@
           grandTotal(data.rent);
         }
       });
+    });
+
+    $('#total').on('keyup', function(){
+      console.log('asd');
+      let total = $(this).val();
+      grandTotal(total);
     });
 
     function grandTotal(total){
